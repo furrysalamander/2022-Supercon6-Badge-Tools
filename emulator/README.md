@@ -9,6 +9,18 @@ Python 3.6 (or greater) is required.
 
 pillow is required: pip install pillow
 
+## Python package
+
+The headless emulator core (`badge`, `bvmCPU`, and `bvmParser`) can be
+installed without Tk or Pillow:
+
+```bash
+pip install "git+https://github.com/Hack-a-Day/2022-Supercon6-Badge-Tools.git#subdirectory=emulator"
+```
+
+The Tk GUI (`bvm.py`) still requires Pillow and a working Tk installation, and
+should be run from a source checkout.
+
 ## Running
 
 Run the program with `python bvm.py [input.bin]`.

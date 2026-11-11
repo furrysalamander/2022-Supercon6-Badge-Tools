@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "supercon6-emulator"
+version = "1.0.0"
+description = "Headless emulator core for the Hackaday Supercon.6 (Voja4) 4-bit badge"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "GPL-3.0-only"
+license-files = ["LICENCE.md"]
+authors = [{ name = "Adam Zeloof" }]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Emulators",
+    "Topic :: System :: Hardware",
+]
+
+[tool.setuptools]
+py-modules = ["badge", "bvmCPU", "bvmParser"]
