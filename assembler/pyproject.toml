@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "supercon6-assembler"
+dynamic = ["version"]
+description = "Assembler for the Hackaday Supercon.6 (Voja4) 4-bit badge"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE.md"]
+authors = [{ name = "Mike Szczys" }]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Assemblers",
+    "Topic :: System :: Hardware",
+]
+
+[project.scripts]
+supercon6-assemble = "assemble:main"
+
+[tool.setuptools]
+py-modules = ["assemble"]
+
+[tool.setuptools.dynamic]
+version = { attr = "assemble.__version__" }

@@ -2,6 +2,15 @@
 
 Assembler and disassembler for the 4-bit Supercon.6 Badge designed by Voja Antonic. Tools and documenation originally written by Mike Szczys.
 
+## Python package
+
+The assembler can be installed as a Python package, which also exposes the
+`supercon6-assemble` console script and the `assemble` module:
+
+```bash
+pip install "git+https://github.com/Hack-a-Day/2022-Supercon6-Badge-Tools.git#subdirectory=assembler"
+```
+
 ## Usage:
 
 It's recommended that you use `.asm` for your source code file. The assembler will produce a binary `.hex` file which can be uploaded to the badge via serial (save/load examples found below).
