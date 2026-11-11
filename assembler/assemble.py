@@ -175,6 +175,12 @@ def parse_asm(lines_of_asm,hexfile_out=None):
         except ParserError as e:
             print_error(e, i, c.source)
             return
+        except Exception as e:
+            # The upstream assembler lets some malformed operands escape as
+            # bare exceptions.  Report them with the same line information so
+            # BadgeC can map the failure back to source.
+            print_error(ParserError("E::%s" % str(e)), i, c.source)
+            return
 
         #Bomb out if we didn't get any code back
         if machinecode_tuple == None:
@@ -301,6 +307,9 @@ def get_tokenized_code(lines_of_asm):
                 elif token.upper() == Opcodes().ASCII:
                     #Each character will generate two RET instructions
                     reg_addr += 2*len(code_obj.tokens[1])
+                elif token.upper() == Opcodes().BYTE:
+                    # BYTE expands to two RET instructions (low and high nibble)
+                    reg_addr += 2
                 else:
                     #All other instructions increment the address by one
                     reg_addr += 1
